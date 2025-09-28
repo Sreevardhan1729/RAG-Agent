@@ -1,0 +1,23 @@
+yaml
+name: RAG Project
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Use Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '13.x'
+    - name: Run Yarn 
+      run: yarn
+    - name: Run tests
+      run: yarn test
